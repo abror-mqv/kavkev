@@ -1,0 +1,116 @@
+.App {
+    text-align: center;
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.password-form p {
+    margin: 10px 10px 30px;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.password-form p span {
+    font-size: 18px;
+    color: rgb(26, 43, 68);
+}
+
+.fa-times {
+    opacity: 0;
+}
+
+.fa-check {
+    opacity: 1;
+}
+
+.icon {
+    position: absolute;
+    text-align: center;
+    line-height: 30px;
+    font-size: large;
+    border-radius: 50%;
+    color: rgb(26, 43, 68);
+    border: 2px solid rgb(26, 42, 68);
+    margin-left: -32px;
+}
+
+.password-form #show_hide {
+    color: rgb(26, 42, 68);
+    font-size: 22px;
+    transform: translateX(80px) translateY(-47px);
+    cursor: pointer;
+}
+
+#show_hide_log,
+#show_hide_log {
+    transform: translateX(80px) translateY(-47px);
+}
+
+.increment {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 0;
+    top: 0;
+    background: linear-gradient(
+        108.73deg,
+        #f9881f 23.73%,
+        #f9881f 23.73%,
+        #ff774c 79.34%
+    );
+    border-radius: 0 0 30px 0;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.white-text-1 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 40px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.back-arrow{
+    position: absolute;
+    left: 30px;
+    top: 30px;
+
+}
