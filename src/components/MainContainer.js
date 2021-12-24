@@ -4,11 +4,12 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root:{
-        marginTop: theme.spacing(16),
+        marginTop: theme.spacing(8),
+        marginBottom: "70px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        
+        maxWidth: "500px"               
     }
 }));
 

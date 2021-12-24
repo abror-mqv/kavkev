@@ -12,8 +12,11 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import Link from "@mui/material/Link";
 import Vector from '../media/Vector 36.png'
+import { useTranslation } from 'react-i18next'
 
 export const Registration = () => {
+    const { t, i18n } = useTranslation()
+
     const history = useHistory();
     const { data, setValues } = useData();
     const [value, setValue] = useState();
@@ -41,7 +44,12 @@ export const Registration = () => {
                 <img alt="назад" src={Vector}></img>
             </Link>
             <Typography component="h5" variant="h5">
-                Введи свой номер
+            {t("reg.warning")}
+            </Typography>
+            <br/>
+            <br/>
+            <Typography component="h5" variant="h5">
+            {t("reg.number")}
             </Typography>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <PhoneInput
@@ -52,7 +60,7 @@ export const Registration = () => {
                     onChange={setValue}
                 />
                 <Typography component="h5" variant="h5">
-                    Введи свое имя и фамилию
+                {t("reg.name")}
                 </Typography>
                 <Input
                     {...register("firstName", {
@@ -74,14 +82,15 @@ export const Registration = () => {
                     label="Фамилия"
                     name="lastName"
                 />
-                <PrimaryButton type="submit">Отправить</PrimaryButton>
+                <PrimaryButton type="submit">{t("reg.submit")}</PrimaryButton>
             </Form>
+
             <Typography
                 component="h5"
                 variant="h6"
                 style={{ margin: "80vh 0 0 0", position: "absolute" }}
             >
-                <Link href="/about">Условия акции</Link>
+                <Link href="/about">{t("site.contest_req")}</Link>
             </Typography>
         </MainContainer>
     );

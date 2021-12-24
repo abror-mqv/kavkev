@@ -4,8 +4,10 @@ import Typography from "@material-ui/core/Typography";
 import { useHistory } from "react-router-dom";
 import Link from "@mui/material/Link";
 import Vector from '../media/Vector 36.png'
+import { useTranslation } from 'react-i18next'
 
 export const ChoseLogReg = () => {
+    const { t, i18n } = useTranslation()
     const history = useHistory();
 
     const buttonReg = () => {
@@ -21,16 +23,16 @@ export const ChoseLogReg = () => {
             <Link href={`scan/${localStorage.token}`} className="back-arrow">
                 <img alt="назад" src={Vector}></img>
             </Link>
-            <Typography component="h3" variant="h3">
-                Выбери вариант входа:
+            <Typography component="h3" variant="h4">
+            {t("chose_log_reg.chose")}
             </Typography>
             <Button
                 onClick={buttonReg}
-                style={{ marginTop: "40px", width: "80%", fontSize: "4vw" }}
+                style={{ marginTop: "40px", width: "100%", height: "70px", fontSize: "22px" }}
                 variant="contained"
                 disableElevation
             >
-                Зарегестрироваться
+                {t("chose_log_reg.reg")}
             </Button>
 
             <Button
@@ -38,20 +40,21 @@ export const ChoseLogReg = () => {
                 style={{
                     marginTop: "40px",
                     backgroundColor: "green",
-                    width: "80%",
-                    fontSize: "4vw",
+                    width: "100%" ,
+                    height: "70px",
+                    fontSize: "22px"
                 }}
                 variant="contained"
                 disableElevation
             >
-                У меня уже есть аккаунт
+                {t("chose_log_reg.login")}
             </Button>
             <Typography
                 component="h5"
                 variant="h6"
                 style={{ margin: "102vh 0 0 0", position: "absolute" }}
             >
-                <Link href="/about">Условия акции</Link>
+                <Link href="/about">{t("site.contest_req")}</Link>
             </Typography>
         </MainContainer>
     );

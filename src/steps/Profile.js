@@ -6,21 +6,30 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import qr_img from "../media/qr-img.png";
-// Core modules imports are same as usual
-import { Pagination } from "swiper";
-import SwiperCore, { Navigation } from "swiper";
-import Link from '@mui/material/Link';
-// Direct React component imports
+import { useHistory } from 'react-router-dom';
+import useState from "react";
+import NewColorScheme from '../components/NewColorScheme'
+
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
-// Styles must use direct files imports
-import "swiper/swiper.min.css";
-// import { useTranslation } from 'react-i18next'
+import "swiper/swiper-bundle.min.css";
+import {EffectCoverflow} from 'swiper'
 
-SwiperCore.use([Navigation]);
+import Link from "@mui/material/Link";
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "../components/LanguageSelector";
 
+SwiperCore.use([Autoplay,Pagination,Navigation]);
 
 export const Profile = () => {
-    // const { t, i18n } = useTranslation()
+    const history = useHistory();
+    if(localStorage.userToken === undefined){
+        history.push("/chose-log-reg")
+    }else{
+        
+    }
+
+    const { t, i18n } = useTranslation();
 
     const style = {
         position: "absolute",
@@ -28,6 +37,7 @@ export const Profile = () => {
         left: "50%",
         transform: "translate(-50%, -50%)",
         width: "100%",
+        maxWidth: "600px",
         bgcolor: "white",
         display: "flex",
         flexDirection: "column",
@@ -37,7 +47,7 @@ export const Profile = () => {
 
     const pro_obj = JSON.parse(localStorage.getItem("pro_obj"));
     const pro_contests = JSON.parse(localStorage.getItem("pro_contests"));
-    const pro_tokens = JSON.parse(localStorage.getItem("pro_tokens"))
+    const pro_tokens = JSON.parse(localStorage.getItem("pro_tokens"));
     const isToken = () => {
         if (typeof localStorage.token !== "undefined") {
             console.log("return true");
@@ -52,21 +62,21 @@ export const Profile = () => {
         if (localStorage.isTook == 404) {
             return (
                 <Typography component="h5" variant="h5">
-                    Данный код был отсканирован ранее
+                    {t("profile.invalid_code")}
                 </Typography>
             );
         } else if (localStorage.isTook == 400) {
             console.log("kod limit bro soryan tak cho takie vot dela");
             return (
                 <Typography component="h5" variant="h5">
-                    Нельзя отсканировать более 3-х кодов в день
+                    {t("profile.code_limit")}
                 </Typography>
             );
         } else {
             console.log("kod otskaniroven");
             return (
                 <Typography component="h5" variant="h5">
-                    QR-код успешно отсканирован
+                    {t("profile.code_success")}
                 </Typography>
             );
         }
@@ -77,14 +87,85 @@ export const Profile = () => {
         localStorage.removeItem("token");
         setOpen(false);
     };
-    const listItems = pro_tokens.map((number) =>  {
-        return(
-           <Typography component="p" variant="h6" style={{color: "green", fontSize: "14px"}}>{number.token}</Typography>
-        )
+    const isPrize = () => {
+        if (pro_obj.which_contest.name_contest == "") {
+            return false;
+        } else {
+            return true;
+        }
+    };
+    console.log(isPrize());
+
+    const currentContest = () => {
+        if (isPrize() == false) {
+            return (
+                <SwiperSlide>
+                    <Typography component="h6" variant="h6">
+                        {t("profile.scan_more")}
+                        {pro_contests[0].need_qr - pro_obj.qr_quantity}{" "}
+                        {t("profile.scan_n_get")}
+                    </Typography>
+                    <Typography component="h5" variant="h5">
+                        {pro_contests[0].name_contest}
+                    </Typography>
+                    <img
+                        src={pro_contests[0].image}
+                        style={{ width: "100%", display: "block" }}
+                    />
+                </SwiperSlide>
+            );
+        } else if (isPrize() == true) {
+            return (
+                <SwiperSlide >
+                    <Typography component="h6" variant="h6" styles={{marginTop: "6px"}}>
+                        {t("profile.get_current")}
+                    </Typography>
+                    <Typography component="h5" variant="h5">
+                        {pro_obj.which_contest.name_contest}
+                    </Typography>
+                    <img
+                        src={pro_obj.which_contest.image}
+                        style={{ width: "100%", display: "block" }}
+                    />
+                </SwiperSlide>
+            );
+        }
+    };
+
+    const constestsList = pro_contests.map((obj) => {
+        return (
+            <SwiperSlide>
+                <Typography component="h6" variant="h6" styles={{marginTop: "6px"}}>
+                    {t("profile.grab")} {obj.need_qr}
+                </Typography>
+                <Typography component="h5" variant="h5">
+                    {obj.name_contest}
+                </Typography>
+                <img
+                    src={obj.image}
+                    style={{ width: "100%", display: "block" }}
+                    alt="contest_image"
+                />
+            </SwiperSlide>
+        );
+    });
+    constestsList.unshift(currentContest());
+    console.log(constestsList);
+
+    const listItems = pro_tokens.map((number) => {
+        return (
+            <Typography
+                component="p"
+                variant="h6"
+                style={{ color: "green", fontSize: "14px" }}
+            >
+                {number.token}
+            </Typography>
+        );
     });
 
     return (
-        <MainContainer style={{ paddingRight: 0, paddingLeft: 0 }}>
+        <MainContainer style={{  }}>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -114,7 +195,7 @@ export const Profile = () => {
                         variant="contained"
                         style={{
                             backgroundImage:
-                                "linear-gradient(108.73deg, #F9881F 23.73%, #F9881F 23.73%, #FF774C 79.34%)",
+                                "linear-gradient(93.26deg, #4E53FF 9.35%, #2B23BD 88.89%%)",
                             width: "100%",
                             display: "block",
                             marginTop: "30px",
@@ -128,71 +209,56 @@ export const Profile = () => {
                 </Box>
             </Modal>
             <Typography component="h5" variant="h5">
-                Добро пожаловать на страницу профиля,
+                {t("profile.hello")}
             </Typography>
             <Typography component="h5" variant="h5">
                 {pro_obj.first_name} {pro_obj.last_name}
             </Typography>
             <SmallInfo>
-                <p>Отсканированно QR-кодов</p>
-                <p>за сегодня:</p>
+                <p>{t("profile.scanned")}</p>
+                <p>{t("profile.today")}</p>
                 {pro_obj.qr_in_day}
-                <p>всего:</p>
+                <p>{t("profile.all")}</p>
                 {pro_obj.qr_quantity}
             </SmallInfo>
-            <Swiper navigation={true} className="mySwiper">
-                <SwiperSlide>
-                    <Typography component="h6" variant="h6">
-                        {pro_obj.which_contest.name_contest ? ('Сейчас ты можешь получить:') : ('')}
-                        
-                    </Typography>
-                    <Typography component="h5" variant="h5">
-                        {pro_obj.which_contest.name_contest}
-                    </Typography>
-                    <img
-                        src={pro_obj.which_contest.image}
-                        style={{ width: "100%" }}
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Typography component="h6" variant="h6">
-                        собери {pro_contests[1].need_qr}
-                    </Typography>
-                    <Typography component="h5" variant="h5">
-                        {pro_contests[1].name_contest}
-                    </Typography>
-                    <img
-                        src={pro_contests[1].image}
-                        style={{ width: "100%" }}
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Typography component="h6" variant="h6">
-                    собери {pro_contests[2].need_qr}
-                    </Typography>
-                    <Typography component="h5" variant="h5">
-                        {pro_contests[2].name_contest}
-                    </Typography>
-                    <img
-                        src={pro_contests[2].image}
-                        style={{ width: "100%", display: "block" }}
-                    />
-                </SwiperSlide>
+
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                className="mySwiper"
+                modules={[EffectCoverflow]}
+                effect="coverflow"
+            >
+                {constestsList}
             </Swiper>
-            <Typography component="h5" variant="h5"> 
-                Все твои коды:
+
+            <Typography component="h5" variant="h5">
+                {t("profile.your_codes")}
                 <p> </p>
                 {listItems}
             </Typography>
-            <Typography component="h5" variant="h6" style={{margin: "70px 0 0 0"}}> 
+            <Typography
+                component="h5"
+                variant="h6"
+                style={{ margin: "70px 0 0 0" }}
+            >
                 {pro_obj.username}
             </Typography>
-            <Typography component="h5" variant="h6" style={{margin: "70px 0 70px 0"}}> 
-                <Link href="/about">Условия акции</Link>
+            <Typography
+                component="h5"
+                variant="h6"
+                style={{ margin: "70px 0 70px 0" }}
+            >
+                <Link href="/about">{t("site.contest_req")}</Link>
             </Typography>
-
-                        
-            
+            <LanguageSelector />
         </MainContainer>
     );
 };

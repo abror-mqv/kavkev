@@ -6,10 +6,13 @@ import Form from "../components/Form";
 import { useForm } from "react-hook-form";
 import { PrimaryButton } from "../components/PromaryButton";
 import axios from "axios";
-import { useState } from "react";
 import Link from '@mui/material/Link';
+import { useTranslation } from "react-i18next"
+import LanguageSelector from '../components/LanguageSelector'
+
 
 export const Step1 = () => {
+    const { t, i18n } = useTranslation()
 
     async function getProfile() {
         let res = await axios({
@@ -97,11 +100,12 @@ export const Step1 = () => {
 
     return (
         <MainContainer>
+            <LanguageSelector/>
             <div className="increment">
                 <div className="white-text-1">+1</div>
             </div>
-            <Typography component="h2" variant="h3">
-                Поздравляем! Вы отсканировали QR-код:
+            <Typography component="h2" variant="h4" styles={{fontSize: "12px"}}> 
+                {t("step1.congrats")}
             </Typography>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Typography
@@ -112,10 +116,10 @@ export const Step1 = () => {
                     ...{tokenSlug}...
                 </Typography>
 
-                <PrimaryButton type="submit">Забрать</PrimaryButton>
+                <PrimaryButton type="submit">{t("step1.grab")}</PrimaryButton>
             </Form>
             <Typography component="h5" variant="h6" style={{margin: "80vh 0 0 0", position: "absolute"}}> 
-                <Link href="/about">Условия акции</Link>
+                <Link href="/about">{t("site.contest_req")}</Link>
             </Typography>
         </MainContainer>
     );
