@@ -27,7 +27,7 @@ function App() {
                         <Route exact path="/" component={Login} />
                         <Route
                             exact
-                            path="/scan/:tokenSlug"
+                            path="/s/:tokenSlug"
                             component={Step1}
                         />
                         <Route
