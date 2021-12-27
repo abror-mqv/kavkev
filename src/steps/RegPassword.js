@@ -123,7 +123,7 @@ export const RegPassword = () => {
                             history.push('/registration')
                         }else{
                             localStorage.setItem("userToken", response.data.token);
-                            history.push(`/s/${localStorage.token}`);
+                            history.push(`/${localStorage.token}`);
                         }
 
                     })

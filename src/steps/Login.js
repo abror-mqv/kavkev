@@ -85,7 +85,7 @@ export const Login = () => {
                 localStorage.setItem("userToken", response.data.token);
                 console.log('0000000000000000000000000')
                 if(localStorage.token !== undefined){
-                    history.push(`/s/${localStorage.token}`);
+                    history.push(`/${localStorage.token}`);
                 }else{
                     getProfile()
                             .then((res) => {
