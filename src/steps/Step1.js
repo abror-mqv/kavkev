@@ -13,6 +13,8 @@ import LanguageSelector from '../components/LanguageSelector'
 
 export const Step1 = () => {
     const { t, i18n } = useTranslation()
+    const history = useHistory();
+
 
     async function getProfile() {
         let res = await axios({
@@ -30,8 +32,15 @@ export const Step1 = () => {
     }
 
     const { tokenSlug } = useParams();
+    console.log(tokenSlug.length)
+
+    if(tokenSlug.length == 25){
+        console.log("Token url slug success")
+    }else{
+        history.push("/invalid-url")
+    }
     console.log("token: ", tokenSlug)
-    const history = useHistory();
+
     const { handleSubmit } = useForm({
         mode: "onBlur",
     });

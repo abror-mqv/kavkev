@@ -14,12 +14,12 @@ import { Profile } from "./steps/Profile";
 import { LogPassword } from "./steps/LogPassword";
 import { ChoseLogReg } from "./steps/ChoseLogReg";
 import { About } from "./steps/About";
-import logo from './media/logo.svg'
+import logo from "./media/logo.svg";
 
 function App() {
     return (
         <div className="App">
-            <img className="logo" src={logo} alt="KavKev"/>
+            <img className="logo" src={logo} alt="KavKev" />
             <Suspense fallback={null}>
                 <DataProvider />
                 <Router>
@@ -27,8 +27,8 @@ function App() {
                         <Route exact path="/" component={Login} />
                         <Route
                             exact
-                            path="/s/:tokenSlug"
-                            component={Step1}
+                            path="/invalid-url"
+                            component={ErrorPage}
                         />
                         <Route
                             exact
@@ -53,8 +53,7 @@ function App() {
                             path="/log-password"
                             component={LogPassword}
                         />
-
-                        <Route path="/" component={ErrorPage} />
+                        <Route path="/:tokenSlug" component={Step1} />
                     </Switch>
                 </Router>
             </Suspense>

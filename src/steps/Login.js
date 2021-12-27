@@ -85,7 +85,7 @@ export const Login = () => {
                 localStorage.setItem("userToken", response.data.token);
                 console.log('0000000000000000000000000')
                 if(localStorage.token !== undefined){
-                    history.push(`/scan/${localStorage.token}`);
+                    history.push(`/s/${localStorage.token}`);
                 }else{
                     getProfile()
                             .then((res) => {
@@ -213,9 +213,6 @@ export const Login = () => {
                 )}
                 <PrimaryButton type="submit" >{t("login.login")}</PrimaryButton>
             </Form>
-            <Typography component="h5" variant="h6" style={{margin: "102vh 0 0 0", position: "absolute"}}> 
-                <Link href="/about">{t("site.contest_req")}</Link>
-            </Typography>
         </MainContainer>
     );
 };
