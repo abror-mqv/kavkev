@@ -83,7 +83,6 @@ export const Login = () => {
             .then(function (response) {
                 console.log(response.data.token);
                 localStorage.setItem("userToken", response.data.token);
-                console.log('0000000000000000000000000')
                 if(localStorage.token !== undefined){
                     history.push(`/${localStorage.token}`);
                 }else{
@@ -173,10 +172,10 @@ export const Login = () => {
                 <PhoneInput
                     defaultCountry="KG"
                     inputComponent={Input}
-                    placeholder="Номер телефона"
+                    placeholder={t("site.input.number")}
                     value={value}
                     onChange={setValue}
-                    label="Номер телефона"
+                    label={t("site.input.number")}
                 />
                 <Typography component="h5" variant="h5" style={{
                             marginTop: "30px",
@@ -188,9 +187,9 @@ export const Login = () => {
                     {...register("password", { required: true, maxLength: 40 })}
                     id="password"
                     type={show ? "text" : "password"}
-                    label="Пароль"
+                    label={t("site.input.passwort")}
                     name="password"
-                    placeholder="Введите пароль"
+                    placeholder={t("site.input.passwort")}
                 />
                 {show ? (
                     <FontAwesomeIcon
@@ -213,6 +212,7 @@ export const Login = () => {
                 )}
                 <PrimaryButton type="submit" >{t("login.login")}</PrimaryButton>
             </Form>
+            <Typography component="h5" variant="h6" style={{position: "absolute", bottom: "30px"}} ><a href="https://wa.me/+996559595139">Забыли пароль?</a></Typography>
         </MainContainer>
     );
 };

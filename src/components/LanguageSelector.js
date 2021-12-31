@@ -7,7 +7,7 @@ import FormControl from "@mui/material/FormControl";
 
 export default function RowRadioButtonsGroup() {
     const { t, i18n } = useTranslation();
-    const [value, setValue] = React.useState('ru');
+    const [value, setValue] = React.useState("ru");
 
     const changeLanguage = (event) => {
         setValue(event.target.value);
@@ -21,17 +21,22 @@ export default function RowRadioButtonsGroup() {
                 name="controlled-radio-buttons-group"
                 value={value}
                 onChange={changeLanguage}
-                style={{marginTop: "20px"}}
+                style={{ marginTop: "20px", marginBottom: "20px" }}
             >
                 <FormControlLabel
                     value="ru"
                     control={<Radio />}
-                    label="Русский язык"
+                    label="Ru"
                 />
                 <FormControlLabel
                     value="kg"
                     control={<Radio />}
-                    label="Кыргыз тили"
+                    label="Kg"
+                />
+                <FormControlLabel
+                    value="en"
+                    control={<Radio />}
+                    label="En"
                 />
             </RadioGroup>
         </FormControl>

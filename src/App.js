@@ -11,7 +11,6 @@ import { Login } from "./steps/Login";
 import { Registration } from "./steps/Registration";
 import { RegPassword } from "./steps/RegPassword";
 import { Profile } from "./steps/Profile";
-import { LogPassword } from "./steps/LogPassword";
 import { ChoseLogReg } from "./steps/ChoseLogReg";
 import { About } from "./steps/About";
 import logo from "./media/logo.svg";
@@ -48,11 +47,6 @@ function App() {
                             component={RegPassword}
                         />
                         <Route exact path="/profile" component={Profile} />
-                        <Route
-                            exact
-                            path="/log-password"
-                            component={LogPassword}
-                        />
                         <Route path="/:tokenSlug" component={Step1} />
                     </Switch>
                 </Router>

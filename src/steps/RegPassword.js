@@ -207,9 +207,9 @@ export const RegPassword = () => {
                     {...register("password", { required: true, maxLength: 30 })}
                     id="password"
                     type={show ? "text" : "password"}
-                    label="password"
+                    label={t("site.input.passwort")}
                     name="password"
-                    placeholder="Введите пароль"
+                    placeholder={t("site.input.passwort")}
                     onChange={handleInputChange}
                 />
                 {show ? (

@@ -8,6 +8,7 @@ import LanguageSelector from '../components/LanguageSelector'
 export const About = () => {
     const { t, i18n } = useTranslation();
     return (
+        
         <MainContainer style={{ maxWidth: "720px" }}>
             <LanguageSelector/>
             <Typography

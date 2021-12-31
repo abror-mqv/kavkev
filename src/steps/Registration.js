@@ -55,7 +55,7 @@ export const Registration = () => {
                 <PhoneInput
                     defaultCountry="KG"
                     inputComponent={Input}
-                    placeholder="Enter phone number"
+                    placeholder={t("site.input.number")}
                     value={value}
                     onChange={setValue}
                 />
@@ -69,7 +69,7 @@ export const Registration = () => {
                     })}
                     id="firstName"
                     type="text"
-                    label="Имя"
+                    label={t("site.input.name")}
                     name="firstName"
                 />
                 <Input
@@ -79,7 +79,7 @@ export const Registration = () => {
                     })}
                     id="lastName"
                     type="text"
-                    label="Фамилия"
+                    label={t("site.input.last_name")}
                     name="lastName"
                 />
                 <PrimaryButton type="submit">{t("reg.submit")}</PrimaryButton>

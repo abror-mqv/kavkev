@@ -7,8 +7,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import qr_img from "../media/qr-img.png";
 import { useHistory } from 'react-router-dom';
-import useState from "react";
-import NewColorScheme from '../components/NewColorScheme'
+import axios from "axios";
 
 import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
@@ -18,6 +17,8 @@ import {EffectCoverflow} from 'swiper'
 import Link from "@mui/material/Link";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "../components/LanguageSelector";
+
+
 
 SwiperCore.use([Autoplay,Pagination,Navigation]);
 
@@ -30,6 +31,26 @@ export const Profile = () => {
     }
 
     const { t, i18n } = useTranslation();
+
+    axios({
+        method: "GET",
+        url: "http://www.api-kavkev.kg/api/profile/my/",
+        headers: {
+            Authorization: `Token ${localStorage.userToken}`,
+                },
+        data: {},
+    })
+    .then((res) => {
+        console.log(res);
+        console.log("Profile gotten")
+        localStorage.setItem('pro_obj', JSON.stringify(res.data.profile));
+        localStorage.setItem('pro_tokens', JSON.stringify(res.data.tokens));
+        localStorage.setItem('pro_contests', JSON.stringify(res.data.contests));
+    })
+    .catch((error) => {
+        console.log(error);
+    });            
+       
 
     const style = {
         position: "absolute",

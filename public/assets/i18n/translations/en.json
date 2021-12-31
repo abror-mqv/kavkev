@@ -1,0 +1,57 @@
+{
+    "site.contest_req": "Conditions of the Promotion",
+    "site.errorpage": "Page not found ((",
+  
+    "profile.hello": "Welcome to your profile page,",
+    "profile.scanned": "Tokens registred",
+    "profile.today": "today:",
+    "profile.all": "total:",
+    "profile.grab": "collect",
+    "profile.your_codes": "All of your tokens:",
+    "profile.invalid_code": "This token was scanned earlier",
+    "profile.code_limit": "You cannot scan more than 3 tokens per day",
+    "profile.code_success": "QR-code successfully scanned",
+    "profile.scan_more": "Collect  ",
+    "profile.scan_n_get": " tokens and get:",
+    "profile.get_current": "Currently you can get",
+  
+    "chose_log_reg.chose": "Login into ypur account or create new one using phone number",
+    "chose_log_reg.reg": "Register now",
+    "chose_log_reg.login": "Login",
+  
+    "login.welcomeback": "Welcome back!",  
+    "login.number": "Enter your phone number",
+    "login.password": "And your password",
+    "login.login": "Login",
+    "login.error": "Invalid number/password",
+  
+    "reg.please": "Для участия в акции Вам нужно указать свои:",
+    "reg.warning": "Please enter the real data, as the issue of the prize is possible only with a passport or a similar identifying document.",
+    "reg.number": "Enter your number",
+    "reg.name": "Please enter your first and last name",
+    "reg.submit": "Submit",
+  
+    "reg_pass.pass": "Create a password",
+    "reg_pass.use_nums": "Use numbers",
+    "reg_pass.use_8plus": "8+ characters",
+    "reg_pass.submit": "Register now",
+  
+    "step1.congrats": "Congratulations! You have scanned the QR code",
+    "step1.grab": "Collect",
+  
+    "req.1": "1) Buy a sandwich",
+    "req.2": "2) Erase protective layer from QR code",
+    "req.3": "3) Scan",
+    "req.4": "4) Collect the QR code",
+    "req.4.a": "Those who collect 10 codes have the opportunity to participate in the drawing of a set of sandwiches (200 sets of 5 pieces).",
+    "req.4.b": "Collected 20 codes have the opportunity to participate in the drawing thermos (200 pieces).",
+    "req.4.c": "Collected 30 codes have the opportunity to participate in the drawing of mobile station Yandex (10 pieces).",
+    "req.4.d": "Those who collect 40 codes have the opportunity to participate in the drawing of a bicycle (5 pieces).",
+    "req.4.e": "Collected 50 codes have the opportunity to participate in the drawing of Xiaomi Redmi 10 (5 pieces).",
+    "req.4.f": "Collected 60 codes have the opportunity to participate in the drawing of the game console PS4 Slim (3 pieces).",
+    "req.4.g": "Those who collect 80 codes have the opportunity to participate in the drawing of an electric scooter Xiaomi Mi Electric Scater (3 pieces).",
+    "req.4.h": "Collected 100 codes have the opportunity to participate in the drawing of a notebook Asus (3 pieces).",
+    "req.5": "The drawing will be live on our instagram page on March 31, 2022!  ",
+    "req.6": "   Subscribe!",
+    "req.7": "*Kav-Kev employees are not eligible to participate in this contest. *Persons over 18 years of age may participate in the drawing."
+  }
