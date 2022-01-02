@@ -20,7 +20,7 @@ export const ChoseLogReg = () => {
 
     return (
         <MainContainer>
-            <Link href={`scan/${localStorage.token}`} className="back-arrow">
+            <Link href={`/{localStorage.token}`} className="back-arrow">
                 <img alt="назад" src={Vector}></img>
             </Link>
             <Typography component="h3" variant="h4">
