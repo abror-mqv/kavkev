@@ -56,6 +56,7 @@ export const Registration = () => {
                     defaultCountry="KG"
                     inputComponent={Input}
                     placeholder={t("site.input.number")}
+                    label={t("site.input.number")}
                     value={value}
                     onChange={setValue}
                 />

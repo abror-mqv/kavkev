@@ -187,9 +187,9 @@ export const Login = () => {
                     {...register("password", { required: true, maxLength: 40 })}
                     id="password"
                     type={show ? "text" : "password"}
-                    label={t("site.input.passwort")}
+                    label={t("site.input.password")}
                     name="password"
-                    placeholder={t("site.input.passwort")}
+                    placeholder={t("site.input.password")}
                 />
                 {show ? (
                     <FontAwesomeIcon

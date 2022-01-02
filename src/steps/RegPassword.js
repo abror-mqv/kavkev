@@ -101,6 +101,23 @@ export const RegPassword = () => {
         setValues(data);
         console.log(data.password);
 
+
+        async function getProfile() {
+            let res = await axios({
+                method: "GET",
+                url: "http://www.api-kavkev.kg/api/profile/my/",
+                headers: {
+                    Authorization: `Token ${localStorage.userToken}`,
+                },
+                data: {},
+            });
+            if (res.status === 200) {
+                console.log(res.status);
+            }
+            return res.data;
+        }
+
+
         async function postRegistration() {
             let response = await axios({
                 method: "POST",
@@ -123,7 +140,22 @@ export const RegPassword = () => {
                             history.push('/registration')
                         }else{
                             localStorage.setItem("userToken", response.data.token);
-                            history.push(`/${localStorage.token}`);
+                            if(localStorage.token !== undefined){
+                                history.push(`/${localStorage.token}`);
+                            }else{
+                                getProfile()
+                                        .then((res) => {
+                                            console.log(res);
+                                            console.log("Profile gotten")
+                                            localStorage.setItem('pro_obj', JSON.stringify(res.profile));
+                                            localStorage.setItem('pro_tokens', JSON.stringify(res.tokens));
+                                            localStorage.setItem('pro_contests', JSON.stringify(res.contests));
+                                            history.push("/profile");
+                                        })
+                                        .catch((error) => {
+                                            console.log(error);
+                                        });            
+                            }
                         }
 
                     })

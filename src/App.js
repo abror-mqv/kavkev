@@ -16,14 +16,27 @@ import { About } from "./steps/About";
 import logo from "./media/logo.svg";
 
 function App() {
+    const isSession = () => {
+        if(typeof localStorage.userToken !== "undefined"){
+            return(Profile)
+        }else{
+            return(ChoseLogReg)
+        }
+    }
+
+    console.log(isSession())
+
+    
+
     return (
+    
         <div className="App">
             <img className="logo" src={logo} alt="KavKev" />
             <Suspense fallback={null}>
                 <DataProvider />
                 <Router>
                     <Switch>
-                        <Route exact path="/" component={Login} />
+                        <Route exact path="/" component={isSession()} />
                         <Route
                             exact
                             path="/invalid-url"
