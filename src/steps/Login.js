@@ -63,7 +63,7 @@ export const Login = () => {
         async function getProfile() {
             let res = await axios({
                 method: "GET",
-                url: "http://www.api-kavkev.kg/api/profile/my/",
+                url: "http://www.api-kavkev.kg:8080/api/profile/my/",
                 headers: {
                     Authorization: `Token ${localStorage.userToken}`,
                 },
@@ -76,7 +76,7 @@ export const Login = () => {
         }
 
         axios
-            .post("http://api-kavkev.kg/api/login/", {
+            .post("http://api-kavkev.kg:8080/api/login/", {
                 username: value,
                 password: data.password,
             })
@@ -157,7 +157,7 @@ export const Login = () => {
                     </Button>
                 </Box>
             </Modal>
-            <Link href="/chose-log-reg" className="back-arrow">
+            <Link href="/" className="back-arrow">
                 <img alt="назад" src={Vector}></img>
             </Link>
             <Typography component="h5" variant="h5">

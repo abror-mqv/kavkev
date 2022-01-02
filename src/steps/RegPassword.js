@@ -105,7 +105,7 @@ export const RegPassword = () => {
         async function getProfile() {
             let res = await axios({
                 method: "GET",
-                url: "http://www.api-kavkev.kg/api/profile/my/",
+                url: "http://www.api-kavkev.kg:8080/api/profile/my/",
                 headers: {
                     Authorization: `Token ${localStorage.userToken}`,
                 },
@@ -121,7 +121,7 @@ export const RegPassword = () => {
         async function postRegistration() {
             let response = await axios({
                 method: "POST",
-                url: "http://api-kavkev.kg/api/registration/",
+                url: "http://api-kavkev.kg:8080/api/registration/",
                 data: {
                     username: localStorage.phoneNumber,
                     password: data.password,
@@ -239,9 +239,9 @@ export const RegPassword = () => {
                     {...register("password", { required: true, maxLength: 30 })}
                     id="password"
                     type={show ? "text" : "password"}
-                    label={t("site.input.passwort")}
+                    label={t("site.input.password")}
                     name="password"
-                    placeholder={t("site.input.passwort")}
+                    placeholder={t("site.input.password")}
                     onChange={handleInputChange}
                 />
                 {show ? (

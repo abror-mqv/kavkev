@@ -34,7 +34,7 @@ export const Profile = () => {
 
     axios({
         method: "GET",
-        url: "http://www.api-kavkev.kg/api/profile/my/",
+        url: "http://www.api-kavkev.kg:8080/api/profile/my/",
         headers: {
             Authorization: `Token ${localStorage.userToken}`,
                 },
@@ -277,7 +277,7 @@ export const Profile = () => {
                 variant="h6"
                 style={{ margin: "70px 0 70px 0" }}
             >
-                <Link href="/about">{t("site.contest_req")}</Link>
+                <Link href="/contest-about">{t("site.contest_req")}</Link>
             </Typography>
             <LanguageSelector />
         </MainContainer>

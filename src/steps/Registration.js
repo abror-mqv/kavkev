@@ -40,7 +40,7 @@ export const Registration = () => {
 
     return (
         <MainContainer>
-            <Link href="/chose-log-reg" className="back-arrow">
+            <Link href="/" className="back-arrow">
                 <img alt="назад" src={Vector}></img>
             </Link>
             <Typography component="h5" variant="h5">

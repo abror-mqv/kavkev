@@ -19,7 +19,7 @@ export const Step1 = () => {
     async function getProfile() {
         let res = await axios({
             method: "GET",
-            url: "http://www.api-kavkev.kg/api/profile/my/",
+            url: "http://www.api-kavkev.kg:8080/api/profile/my/",
             headers: {
                 Authorization: `Token ${localStorage.userToken}`,
             },
@@ -48,7 +48,7 @@ export const Step1 = () => {
     const sendToken = () => {
         axios({
             method: "put",
-            url: `http://api-kavkev.kg/api/token/${localStorage.token}/`,
+            url: `http://api-kavkev.kg:8080/api/token/${localStorage.token}/`,
             headers: {
                 Authorization: `Token ${localStorage.userToken}`,
             },
