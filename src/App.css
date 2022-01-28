@@ -118,3 +118,24 @@
     margin-bottom: -44px;
 }
 
+
+.ShopContainer{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px;
+    
+}
+
+.goShop{
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: -5px 5px 5px -5px rgba(34, 60, 80, 0.6);
+}
+.goShop:hover{
+    background-color: rgb(249, 249, 249);
+}

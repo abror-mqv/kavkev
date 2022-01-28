@@ -13,27 +13,28 @@ import { RegPassword } from "./steps/RegPassword";
 import { Profile } from "./steps/Profile";
 import { ChoseLogReg } from "./steps/ChoseLogReg";
 import { About } from "./steps/About";
+
+import { Category } from "./shop/pages/Category";
+import { Shop } from "./shop/pages/Shop";
+import { ProductDetail } from "./shop/pages/ProductDetail";
+import { Cart } from "./shop/pages/Cart/Cart";
 import logo from "./media/logo.svg";
 
 function App() {
     const isSession = () => {
-        if(typeof localStorage.userToken !== "undefined"){
-            return(Profile)
-        }else{
-            return(ChoseLogReg)
+        if (typeof localStorage.userToken !== "undefined") {
+            return Profile;
+        } else {
+            return ChoseLogReg;
         }
-    }
+    };
 
-    console.log(isSession())
-
-    
+    console.log(isSession());
 
     return (
-    
         <div className="App">
             <img className="logo" src={logo} alt="KavKev" />
             <Suspense fallback={null}>
-                <DataProvider />
                 <Router>
                     <Switch>
                         <Route exact path="/" component={isSession()} />
@@ -42,6 +43,28 @@ function App() {
                             path="/invalid-url"
                             component={ErrorPage}
                         />
+                        <Route exact path="/shop" component={Shop} />
+                      
+                        <Route
+                            exact
+                            path="/shop/product/:productId"
+                            component={ProductDetail}
+                        />
+                        <Route
+                            exact
+                            path="/shop/cart"
+                            component={Cart}
+                        />
+                          <Route
+                            exact
+                            path="/shop/:categoryId"
+                            component={Category}
+                        />
+                        <Route
+                            exact
+                            path="/chose-log-reg"
+                            component={ChoseLogReg}
+                        />
                         <Route
                             exact
                             path="/chose-log-reg"
@@ -49,11 +72,6 @@ function App() {
                         />
                         <Route exact path="/contest-about" component={About} />
                         <Route exact path="/login" component={Login} />
-                        <Route
-                            exact
-                            path="/registration"
-                            component={Registration}
-                        />
                         <Route
                             exact
                             path="/reg-password"

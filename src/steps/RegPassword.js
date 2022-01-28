@@ -277,7 +277,7 @@ export const RegPassword = () => {
                 variant="h6"
                 style={{ margin: "80vh 0 0 0", position: "absolute" }}
             >
-                <Link href="/about">{t("site.contest_req")}</Link>
+                <Link href="/contest-about">{t("site.contest_req")}</Link>
             </Typography>
         </MainContainer>
     );

@@ -128,7 +128,7 @@ export const Step1 = () => {
                 <PrimaryButton type="submit">{t("step1.grab")}</PrimaryButton>
             </Form>
             <Typography component="h5" variant="h6" style={{margin: "80vh 0 0 0", position: "absolute"}}> 
-                <Link href="/about">{t("site.contest_req")}</Link>
+                <Link href="/contest-about">{t("site.contest_req")}</Link>
             </Typography>
         </MainContainer>
     );

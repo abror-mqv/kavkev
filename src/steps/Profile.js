@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import qr_img from "../media/qr-img.png";
+import storeIcon from '../media/store.png'
 import { useHistory } from 'react-router-dom';
 import axios from "axios";
 
@@ -265,6 +266,15 @@ export const Profile = () => {
                 <p> </p>
                 {listItems}
             </Typography>
+            <Link href="/shop" className="goShop" style={{margin: "70px 0 0 0"}}>
+            <Typography
+                component="h5"
+                variant="h6"
+                
+            >
+                {t("site.goshop")}<br/><img src={storeIcon} alt="shop icon" style={{width: 60}}/>
+            </Typography>
+            </Link>
             <Typography
                 component="h5"
                 variant="h6"
