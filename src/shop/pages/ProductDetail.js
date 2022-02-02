@@ -27,6 +27,9 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import addSuccess from "../../media/add-to-basket.png";
 import { makeStyles } from "@material-ui/core/styles";
+import Vector from "../../media/Vector 36.png";
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -59,7 +62,7 @@ export const ProductDetail = () => {
     const { data, setValues } = useData();
     const { productId } = useParams();
     let product = useSelector((state) => state.product);
-    const { name_product, amount, composition, price, raiting_general } =
+    const { name_product, amount, composition, price, raiting_general, image } =
         product;
     const dispatch = useDispatch();
     const fetchProductDetail = async (id) => {
@@ -74,13 +77,15 @@ export const ProductDetail = () => {
     const { register, handleSubmit } = useForm({
         mode: "onBlur",
     });
+  
 
     const onSubmit = (data) => {
+        localStorage.setItem("prod_id", productId)
         setValues(data);
         localStorage.setItem("goodAmount", data.goodAmount);
         console.log(data);
-        if (typeof localStorage.userToken === undefined) {
-            history.push("/chose-log-reg");
+        if (localStorage.userToken == null) {
+            history.push("/shop/chose-log-reg");
         } else {
             setOpen(true);
             axios({
@@ -113,7 +118,11 @@ export const ProductDetail = () => {
         setOpen(false);
     };
     const redToCart = () => {
-        history.push("../cart")
+        if (localStorage.userToken == null) {
+            history.push("/shop/chose-log-reg");
+        }else{
+            history.push("../cart")
+        }
     }
 
     return (
@@ -162,14 +171,15 @@ export const ProductDetail = () => {
                     </Button>
                 </Box>
             </Modal>
+
             {Object.keys(product).length === 0 ? (
                 <div>...Loading</div>
             ) : (
-                <Card sx={{ maxWidth: 400 }}>
+                <Card sx={{ maxWidth: "40vh" }}>
                     <CardActionArea>
                         <CardMedia
                             component="img"
-                            image={placeholder}
+                            image={image}
                             alt={name_product}
                         />
                         <CardContent
@@ -245,3 +255,4 @@ export const ProductDetail = () => {
         </div>
     );
 };
+

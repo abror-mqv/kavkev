@@ -29,6 +29,7 @@ export const Prods = () => {
             amount,
             composition,
             raiting_general,
+            image
         } = product;
 
         const cardClick = () => {
@@ -40,7 +41,7 @@ export const Prods = () => {
                 <CardActionArea onClick={cardClick}>
                     <CardMedia
                         component="img"
-                        image={placeholder}
+                        image={image}
                         alt={name_product}
                     />
                     <CardContent style={{textAlign: "start", marginTop: "16px"}}>
@@ -64,7 +65,7 @@ export const Prods = () => {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="primary" onClick={cardClick}>
                         Подробнее
                     </Button>
                 </CardActions>

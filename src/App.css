@@ -1,5 +1,10 @@
+body{
+    background-color: rgb(253, 253, 253);
+}
+
 .App {
     text-align: center;
+    margin-bottom: 120px;
 }
 
 .App-header {
@@ -139,3 +144,45 @@
 .goShop:hover{
     background-color: rgb(249, 249, 249);
 }
+
+.css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root div {
+    width: 25%;
+}
+
+.greenButton{
+    background-color: #aff6cf !important; 
+    background-image: linear-gradient(315deg, #aff6cf 0%, #9f98e8 74%)!important; 
+}
+
+.formContainer{
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 15px;
+    position: absolute; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -70%);
+    padding-top: 40px;
+}
+
+.greenColorForm .makeStyles-root-3{
+    background-color: #00b712;
+    background-image: linear-gradient(315deg, #00c814e7 0%, #5bff15c0 74%);
+    border-radius: 15px;
+    
+    
+    
+}
+
+@media screen and (max-width: 720px) {
+    .CartCard{
+        display: flex;
+        flex-direction: column;
+    }
+    .CartCard__image{
+        width: 100% !important;
+        border-radius: 15px;
+    }
+    .css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root div {
+        width: 100%;
+    }
+  }

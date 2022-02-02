@@ -1,25 +1,26 @@
-import { Input } from "../components/Input";
-import "../App.css";
+import React from 'react'
+import { Input } from "../../../components/Input";
 import { useHistory } from "react-router-dom";
-import MainContainer from "../components/MainContainer";
+import MainContainer from "../../../components/MainContainer";
 import Typography from "@material-ui/core/Typography";
-import Form from "../components/Form";
-import { useData } from "../DataContext";
+import Form from "../../../components/Form";
+import { useData } from "../../../DataContext";
 import { useForm } from "react-hook-form";
-import { PrimaryButton } from "../components/PromaryButton";
+import { PrimaryButton } from "../../../components/PromaryButton";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import Vector from '../media/Vector 36.png'
+import Vector from '../../../media/Vector 36.png'
 import Link from '@mui/material/Link';
 import { useTranslation } from 'react-i18next'
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import alert from "../media/alert.png";
+import alert from "../../../media/alert.png";
+
 
 const style = {
     position: "absolute",
@@ -35,8 +36,7 @@ const style = {
     paddingTop: 4,
 };
 
-export const Login = () => {
-    const { t, i18n } = useTranslation()
+export const ShopLogin = () => {
 
     const history = useHistory();
     const { data, setValues } = useData();
@@ -84,7 +84,7 @@ export const Login = () => {
                 console.log(response.data.token);
                 localStorage.setItem("userToken", response.data.token);
                 if(localStorage.token !== undefined){
-                    history.push(`/${localStorage.token}`);
+                    history.goBack();
                 }else{
                     getProfile()
                             .then((res) => {
@@ -93,7 +93,7 @@ export const Login = () => {
                                 localStorage.setItem('pro_obj', JSON.stringify(res.profile));
                                 localStorage.setItem('pro_tokens', JSON.stringify(res.tokens));
                                 localStorage.setItem('pro_contests', JSON.stringify(res.contests));
-                                history.push("/profile");
+                                history.push(`/shop/product/${localStorage.prod_id}`)
                             })
                             .catch((error) => {
                                 console.log(error);
@@ -105,7 +105,7 @@ export const Login = () => {
             .catch(function (error) {
                 console.log(error);
                 setOpen(true)
-                history.push("/login");
+                history.push("/shop/login");
             });
     };
 
@@ -132,7 +132,7 @@ export const Login = () => {
                             padding: "0 0px 0 30px",
                         }}
                     >
-                        <span style={{color: "red", fontSize: "22px"}}>{t("login.error")}</span>
+                        <span style={{color: "red", fontSize: "22px"}}>Ошибка входа(</span>
                         <img
                             src={alert}
                             style={{ width: "70px", height: "70px" }}
@@ -161,35 +161,35 @@ export const Login = () => {
                 <img alt="назад" src={Vector}></img>
             </Link>
             <Typography component="h5" variant="h5">
-            {t("login.welcomeback")}
+            С возвращением
             </Typography>
             
             <Typography component="h5" variant="h5">
-            {t("login.number")}
+            Введите номер
             </Typography>
 
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <PhoneInput
                     defaultCountry="KG"
                     inputComponent={Input}
-                    placeholder={t("site.input.number")}
+                    placeholder="Введите номер"
                     value={value}
                     onChange={setValue}
-                    label={t("site.input.number")}
+                    label="Номер"
                 />
                 <Typography component="h5" variant="h5" style={{
                             marginTop: "30px",
                         }}>
-                            {t("login.password")}
+                            Введите пароль
                 </Typography>
 
                 <Input
                     {...register("password", { required: true, maxLength: 40 })}
                     id="password"
                     type={show ? "text" : "password"}
-                    label={t("site.input.password")}
+                    label="Введите пароль"
                     name="password"
-                    placeholder={t("site.input.password")}
+                    placeholder="Пароль"
                 />
                 {show ? (
                     <FontAwesomeIcon
@@ -210,9 +210,9 @@ export const Login = () => {
                         }}
                     />
                 )}
-                <PrimaryButton type="submit" >{t("login.login")}</PrimaryButton>
+                <PrimaryButton type="submit" >Войти</PrimaryButton>
             </Form>
             <Typography component="h5" variant="h6" style={{position: "absolute", bottom: "30px"}} ><a href="https://wa.me/+996559595139">Забыли пароль?</a></Typography>
         </MainContainer>
     );
-};
+}
