@@ -22,6 +22,7 @@ const cartList = {
     padding: "40px 0 40px 0",
     borderRadius: "25px 25px",
     boxShadow: "10px 10px 20px 4px rgba(0,0,0,0.58)",
+
 };
 const cardStyle = {
     display: "flex",
@@ -50,10 +51,10 @@ export const CartView = () => {
 
 
 
-    const renderList = prodlist?.map((product) => {
-        const { name_product, general_price, quantity_product, id_product, image } = product;
+    const renderList = prodlist?.map((productb) => {
+        const { general_price, quantity_product, product } = productb;
         const ChangeOrder = () => {
-            history.push(`/shop/product/${id_product}`)
+            history.push(`/shop/product/${product.id}`)
         }
         return (
             <Card
@@ -79,8 +80,8 @@ export const CartView = () => {
                         <CardMedia
                             style={{}}
                             component="img"
-                            image={image}
-                            alt={name_product}
+                            image={product.image}
+                            alt={product.name_product}
                             className="CartCard__image"
                         />
                     </ImageZoom>
@@ -104,7 +105,7 @@ export const CartView = () => {
                                 wordWrap: "wrap",
                             }}
                         >
-                            {name_product}
+                            {product.name_product}
                         </Typography>
                         <List
                             dense={true}

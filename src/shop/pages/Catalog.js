@@ -53,6 +53,7 @@ const ProductComponent = () => {
         const cardClick = () => {
             history.push(`/shop/${id}`);
         };
+        console.log("imaaage", `http://kavkev:8080/${image}`)
 
         return (
             <SwiperSlide>
