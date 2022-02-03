@@ -16,7 +16,9 @@ export const Footer = () => {
 
             }} />
             <footer>
-                <Typography component="h6" variant="h6">Контакты: +996 999 999 999</Typography>
+                <Typography component="h6" variant="h6">Контакты: +996 999 999 999 <br/> Мы на рынке Кыргызстана с 1999г.
+Только натуральные продукты.
+Выбор года №1 (Сэндвич года) </Typography>
                 <div style={{
                     gap: "40px"
                 }}>
