@@ -8,6 +8,8 @@ import Typography from "@mui/material/Typography";
 import Vector from "../../media/Vector 36.png";
 import Link from "@mui/material/Link";
 import { useParams } from "react-router-dom";
+import cartIcon from "../trolley.png";
+import {Footer} from '../../components/Footer'
 
 
 export const Category = () => {
@@ -36,6 +38,13 @@ export const Category = () => {
                 <Link href="/shop/" className="back-arrow">
                     <img alt="назад" src={Vector}></img>
                 </Link>
+                {localStorage.userToken ? (
+                <Link href="/shop/cart" className="cartLink">
+                    <img alt="в корзину" src={cartIcon}></img>
+                </Link>
+            ) : (
+                <></>
+            )}
                 <Prods />
             </div>
         </>

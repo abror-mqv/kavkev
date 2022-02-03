@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import cartIcon from "../trolley.png";
 
 export const Prods = () => {
     const history = useHistory();
@@ -29,7 +30,7 @@ export const Prods = () => {
             amount,
             composition,
             raiting_general,
-            image
+            image,
         } = product;
 
         const cardClick = () => {
@@ -44,8 +45,15 @@ export const Prods = () => {
                         image={image}
                         alt={name_product}
                     />
-                    <CardContent style={{textAlign: "start", marginTop: "16px"}}>
-                        <Typography gutterBottom variant="h5" component="div" style={{marginLeft: "16px"}}> 
+                    <CardContent
+                        style={{ textAlign: "start", marginTop: "16px" }}
+                    >
+                        <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="div"
+                            style={{ marginLeft: "16px" }}
+                        >
                             {name_product}
                         </Typography>
                         <List dense={true}>
@@ -75,7 +83,6 @@ export const Prods = () => {
 
     return (
         <>
-
             {renderList}
         </>
     );

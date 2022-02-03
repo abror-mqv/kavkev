@@ -24,6 +24,8 @@ import {ShopLogin} from './shop/pages/reg/ShopLogin'
 import { ShopReg } from './shop/pages/reg/shopReg'
 import { ShopRegPassword } from './shop/pages/reg/regpassword'
 
+import {Footer} from './components/Footer'
+
 import logo from "./media/logo.svg";
 
 function App() {
@@ -97,6 +99,7 @@ function App() {
                         <Route path="/:tokenSlug" component={Step1} />
                     </Switch>
                 </Router>
+                <Footer/>
             </Suspense>
         </div>
     );

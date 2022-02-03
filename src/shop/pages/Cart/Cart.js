@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "../../../redux/actions/productsActions";
 import Typography from "@mui/material/Typography";
 import {CartView} from "./CartView"
+import {Footer} from '../../../components/Footer'
 
 export const Cart = () => {
     //  const products = useSelector((state) => state.allProducts.products);

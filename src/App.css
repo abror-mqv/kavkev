@@ -167,10 +167,36 @@ body{
 .greenColorForm .makeStyles-root-3{
     background-color: #00b712;
     background-image: linear-gradient(315deg, #00c814e7 0%, #5bff15c0 74%);
-    border-radius: 15px;
+    border-radius: 15px; 
+}
+
+.cartLink{
+    position: fixed;
+    right: 5%;
+    top: 30px;
+    z-index: 999;   
     
+}
+.cartLink img{
+    width: 60px;
     
-    
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    clear: both;
+    position: relative;
+    height: 70px;
+    flex-wrap: wrap;
+}
+footer a, footer img{
+    width: 40px;
+}
+.footer__walink {
+    margin-right: 30px;
 }
 
 @media screen and (max-width: 720px) {
