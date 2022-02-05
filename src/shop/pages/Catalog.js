@@ -15,7 +15,6 @@ import { FreeMode } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper-bundle.min.css";
-import { EffectCoverflow } from "swiper";
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;

@@ -1,5 +1,10 @@
 body{
     background-color: rgb(253, 253, 253);
+    min-height: 100%;
+}
+
+#root{
+    min-height: 100%;
 }
 
 .App {
@@ -184,18 +189,21 @@ body{
 
 footer{
     display: flex;
+    margin-top: 25px;
     justify-content: space-around;
     width: 100%;
     align-items: center;
     clear: both;
-    position: relative;
     height: 70px;
     flex-wrap: wrap;
+    padding: 0 10% 0 10%;
+    gap: 10px;
 }
 footer a, footer img{
     width: 40px;
 }
 .footer__walink {
+    margin-top: 35px;
     margin-right: 30px;
 }
 

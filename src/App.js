@@ -18,13 +18,13 @@ import { Category } from "./shop/pages/Category";
 import { Shop } from "./shop/pages/Shop";
 import { ProductDetail } from "./shop/pages/ProductDetail";
 import { Cart } from "./shop/pages/Cart/Cart";
-import {CheckOut} from './shop/pages/CheckOut/CheckOut'
-import { ShopChoseLogReg } from './shop/pages/reg/choselogreg'
-import {ShopLogin} from './shop/pages/reg/ShopLogin'
-import { ShopReg } from './shop/pages/reg/shopReg'
-import { ShopRegPassword } from './shop/pages/reg/regpassword'
+import { CheckOut } from "./shop/pages/CheckOut/CheckOut";
+import { ShopChoseLogReg } from "./shop/pages/reg/choselogreg";
+import { ShopLogin } from "./shop/pages/reg/ShopLogin";
+import { ShopReg } from "./shop/pages/reg/shopReg";
+import { ShopRegPassword } from "./shop/pages/reg/regpassword";
 
-import {Footer} from './components/Footer'
+import { Footer } from "./components/Footer";
 
 import logo from "./media/logo.svg";
 
@@ -41,8 +41,13 @@ function App() {
 
     return (
         <div className="App">
+
             <img className="logo" src={logo} alt="KavKev" />
             <Suspense fallback={null}>
+            <div style={{
+                minHeight: "calc(100vh - 100px)"
+            }}
+            >
                 <Router>
                     <Switch>
                         <Route exact path="/" component={isSession()} />
@@ -51,17 +56,25 @@ function App() {
                             path="/invalid-url"
                             component={ErrorPage}
                         />
+                        <Route exact path="/shop/cart" component={Cart} />
                         <Route
                             exact
-                            path="/shop/cart"
-                            component={Cart}
+                            path="/shop/reg-password"
+                            component={ShopRegPassword}
                         />
-                        <Route exact path="/shop/reg-password" component={ShopRegPassword} />
-                        <Route exact path="/shop/registration" component={ShopReg} />
+                        <Route
+                            exact
+                            path="/shop/registration"
+                            component={ShopReg}
+                        />
                         <Route exact path="/shop/login" component={ShopLogin} />
-                        <Route exact path="/shop/chose-log-reg" component={ShopChoseLogReg} />
+                        <Route
+                            exact
+                            path="/shop/chose-log-reg"
+                            component={ShopChoseLogReg}
+                        />
                         <Route exact path="/shop" component={Shop} />
-                      
+
                         <Route
                             exact
                             path="/shop/product/:productId"
@@ -73,7 +86,7 @@ function App() {
                             path="/shop/checkout"
                             component={CheckOut}
                         />
-                          <Route
+                        <Route
                             exact
                             path="/shop/:categoryId"
                             component={Category}
@@ -88,6 +101,11 @@ function App() {
                             path="/chose-log-reg"
                             component={ChoseLogReg}
                         />
+                        <Route
+                            exact
+                            path="/registration"
+                            component={Registration}
+                        />
                         <Route exact path="/contest-about" component={About} />
                         <Route exact path="/login" component={Login} />
                         <Route
@@ -99,8 +117,11 @@ function App() {
                         <Route path="/:tokenSlug" component={Step1} />
                     </Switch>
                 </Router>
+                </div>
                 <Footer/>
             </Suspense>
+            
+           
         </div>
     );
 }

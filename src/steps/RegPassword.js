@@ -174,7 +174,7 @@ export const RegPassword = () => {
         console.log("-----------");
 
         console.log("RegPassword submiting");
-        history.push("/step1");
+        history.push(`/${localStorage.token}`);
     };
 
     const [open, setOpen] = useState(false);

@@ -39,7 +39,9 @@ export const Shop = () => {
             >
                 Категории продуктов
             </Typography>
-            <div className="ShopContainer">
+            <div className="ShopContainer" style={{
+                minHeiht: "100%"
+            }}>
                 <Catalog />
             </div>
         </>
