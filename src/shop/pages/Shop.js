@@ -6,6 +6,7 @@ import Catalog from "./Catalog";
 import Typography from "@mui/material/Typography";
 import cartIcon from "../trolley.png";
 import Link from "@mui/material/Link";
+import {Helmet} from 'react-helmet-async'
 
 export const Shop = () => {
     const dispatch = useDispatch();
@@ -24,6 +25,12 @@ export const Shop = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Kav&kev || Интернет-Магазин || Категории товаров</title>
+                <meta name="description" content="Оптовый Интернет-магазин продукции от Kav&Kev. Выберите и закажите партию продуктов онлайн!"/>
+                <link rel="canonical" href="/shop"/>
+            </Helmet>
+
             {localStorage.userToken ? (
                 <Link href="/shop/cart" className="cartLink" style={{ }}>
                     <img alt="в корзину" src={cartIcon}></img>

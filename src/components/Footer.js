@@ -31,13 +31,13 @@ export const Footer = () => {
                         href="https://api.whatsapp.com/send/?phone=%2B996999999999&text&app_absent=0"
                         className="footer__walink"
                     >
-                        <img src={wa} />
+                        <img src={wa} alt="whatsapp"/>
                     </a>
                     <a href="https://www.instagram.com/kav_kev.kg/" className="footer__walink">
-                        <img src={ig} />
+                        <img src={ig} alt="instagram" />
                     </a>
                     <a href="https://www.halal.kg/">
-                        <img src={ha} />
+                        <img src={ha} alt="halal certificate"/>
                     </a>
                 </div>
                 <Typography

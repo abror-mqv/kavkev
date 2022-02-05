@@ -4,17 +4,20 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { DataProvider } from "./DataContext";
+import { HelmetProvider } from "react-helmet-async";
 
 import store from "./redux/store";
 import { Provider } from "react-redux";
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <DataProvider>
-                <App />
-            </DataProvider>
-        </Provider>
+        <HelmetProvider>
+            <Provider store={store}>
+                <DataProvider>
+                    <App />
+                </DataProvider>
+            </Provider>
+        </HelmetProvider>
     </React.StrictMode>,
     document.getElementById("root")
 );

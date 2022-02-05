@@ -13,6 +13,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import cartIcon from "../trolley.png";
+import { Helmet } from "react-helmet-async";
 
 export const Prods = () => {
     const history = useHistory();
@@ -20,6 +21,8 @@ export const Prods = () => {
     const products = useSelector((state) =>
         state.allProducts.products.find((x) => x.id == categoryId)
     );
+    const descriprion = `${products?.category} от Kav&Kev. Выберите и закажите партию продуктов онлайн! `
+
     console.log(products);
 
     const renderList = products?.products.map((product) => {
@@ -83,6 +86,16 @@ export const Prods = () => {
 
     return (
         <>
+            <Helmet>
+                <title>
+                  {products?.category}
+                </title>
+                <meta
+                    name="description"
+                    content={descriprion}
+                />
+                <link rel="canonical" href="/shop" />
+            </Helmet>
             {renderList}
         </>
     );
