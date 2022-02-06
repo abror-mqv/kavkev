@@ -24,6 +24,7 @@ export const Prods = () => {
     const descriprion = `${products?.category} от Kav&Kev. Выберите и закажите партию продуктов онлайн! `
 
     console.log(products);
+    var keywords = `${products?.category}, ${products?.category+" бишкек"}, kavkev, kev kev, кавкев, кав кев, сендвичи, сендвичи кав кев, сыры, сендвичи бишкек, бишкек`
 
     const renderList = products?.products.map((product) => {
         const {
@@ -93,6 +94,10 @@ export const Prods = () => {
                 <meta
                     name="description"
                     content={descriprion}
+                />
+                <meta 
+                    name="keywords"
+                    content={keywords}
                 />
                 <link rel="canonical" href="/shop" />
             </Helmet>

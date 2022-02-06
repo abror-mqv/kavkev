@@ -9,7 +9,8 @@ import {
 import placeholder from "../placeholder.png";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet-async'
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -28,8 +29,6 @@ import Box from "@mui/material/Box";
 import addSuccess from "../../media/add-to-basket.png";
 import { makeStyles } from "@material-ui/core/styles";
 import Vector from "../../media/Vector 36.png";
-
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -77,10 +76,9 @@ export const ProductDetail = () => {
     const { register, handleSubmit } = useForm({
         mode: "onBlur",
     });
-  
 
     const onSubmit = (data) => {
-        localStorage.setItem("prod_id", productId)
+        localStorage.setItem("prod_id", productId);
         setValues(data);
         localStorage.setItem("goodAmount", data.goodAmount);
         console.log(data);
@@ -120,13 +118,21 @@ export const ProductDetail = () => {
     const redToCart = () => {
         if (localStorage.userToken == null) {
             history.push("/shop/chose-log-reg");
-        }else{
-            history.push("../cart")
+        } else {
+            history.push("../cart");
         }
-    }
+    };
+    const description = `${name_product} от Kav&Kev. Выберите и закажите партию продуктов онлайн! `
+    var keywords = `${name_product}, kavkev, kev kev, кавкев, кав кев, ${name_product + "бишкек"}, сендвичи, сендвичи кав кев, сыры`
 
     return (
         <div className="ShopContainer" style={{ alignItems: "center" }}>
+            <Helmet>
+                <title>{name_product}</title>
+                <meta name="description" content={description} />
+                <meta name="keywords" content={keywords}/>
+                <link rel="canonical" href="/shop/product/:id" />
+            </Helmet>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -221,7 +227,7 @@ export const ProductDetail = () => {
                             required: true,
                             maxLength: 40,
                         })}
-                        style={{marginBottom: "24px"}}
+                        style={{ marginBottom: "24px" }}
                         id="goodAmount"
                         type="number"
                         label="Количество товара"
@@ -230,7 +236,7 @@ export const ProductDetail = () => {
                     />
                     <Button
                         className={styles.root}
-                        style={{ position: "static"}}
+                        style={{ position: "static" }}
                         type="submit"
                         fullWidth
                         variant="contained"
@@ -240,7 +246,7 @@ export const ProductDetail = () => {
                     </Button>
                     <Button
                         className={styles.root}
-                        style={{ position: "static", marginTop: "24px"}}
+                        style={{ position: "static", marginTop: "24px" }}
                         type="reset"
                         fullWidth
                         variant="contained"
@@ -249,10 +255,8 @@ export const ProductDetail = () => {
                     >
                         Перейти в корзину
                     </Button>
-                    
                 </Form>
             </div>
         </div>
     );
 };
-

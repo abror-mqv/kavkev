@@ -23,12 +23,15 @@ export const Shop = () => {
         fetchProducts();
     }, []);
 
+    var keywords = `kavkev, kev kev, кавкев, кав кев, сендвичи, сендвичи кав кев, сыры, сендвичи бишкек, бишкек`
+
     return (
         <>
             <Helmet>
                 <title>Kav&kev || Интернет-Магазин || Категории товаров</title>
                 <meta name="description" content="Оптовый Интернет-магазин продукции от Kav&Kev. Выберите и закажите партию продуктов онлайн!"/>
                 <link rel="canonical" href="/shop"/>
+                <meta name="keywords" content={keywords} />
             </Helmet>
 
             {localStorage.userToken ? (
