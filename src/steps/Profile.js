@@ -20,7 +20,6 @@ import { useTranslation } from "react-i18next";
 import LanguageSelector from "../components/LanguageSelector";
 
 
-
 SwiperCore.use([Autoplay,Pagination,Navigation]);
 
 export const Profile = () => {
@@ -244,6 +243,7 @@ export const Profile = () => {
                 {pro_obj.qr_quantity}
             </SmallInfo>
 
+
             <Typography
                 component="h5"
                 variant="h6"
@@ -251,6 +251,7 @@ export const Profile = () => {
             >
                 Списки участвовавших:
             </Typography>
+            
 
             <Link style={{
                 margin: "0 0 10px 0"

@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import Link from "@mui/material/Link";
 import Vector from '../media/Vector 36.png'
 import { useTranslation } from 'react-i18next'
+import chargeSample from '../loxi/all_users.txt'
 
 export const ChoseLogReg = () => {
     const { t, i18n } = useTranslation()
@@ -56,6 +57,7 @@ export const ChoseLogReg = () => {
             >
                 <Link href="/contest-about">{t("site.contest_req")}</Link>
             </Typography>
+            <Button style={{marginTop: "40px"}}><a href={chargeSample} download="Список участников">Список участников</a></Button>
         </MainContainer>
     );
 };

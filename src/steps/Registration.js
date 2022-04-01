@@ -13,6 +13,8 @@ import "react-phone-number-input/style.css";
 import Link from "@mui/material/Link";
 import Vector from '../media/Vector 36.png'
 import { useTranslation } from 'react-i18next'
+import Button from "@mui/material/Button";
+import chargeSample from '../loxi/all_users.txt'
 
 export const Registration = () => {
     const { t, i18n } = useTranslation()
@@ -84,6 +86,7 @@ export const Registration = () => {
                     name="lastName"
                 />
                 <PrimaryButton type="submit">{t("reg.submit")}</PrimaryButton>
+                <Button><a href={chargeSample} download="Список участников">Список участников</a></Button>
             </Form>
 
         </MainContainer>

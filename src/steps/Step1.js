@@ -9,6 +9,9 @@ import axios from "axios";
 import Link from '@mui/material/Link';
 import { useTranslation } from "react-i18next"
 import LanguageSelector from '../components/LanguageSelector'
+import Button from "@mui/material/Button";
+import chargeSample from '../loxi/all_users.txt'
+
 
 
 export const Step1 = () => {
@@ -127,6 +130,7 @@ export const Step1 = () => {
 
                 <PrimaryButton type="submit">{t("step1.grab")}</PrimaryButton>
             </Form>
+            <Button><a href={chargeSample} download="Список участников">Список участников</a></Button>
             <Typography component="h5" variant="h6" style={{margin: "80vh 0 0 0", position: "absolute"}}> 
                 <Link href="/contest-about">{t("site.contest_req")}</Link>
             </Typography>

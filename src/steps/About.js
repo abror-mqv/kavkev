@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import Link from '@mui/material/Link';
 import insta from "../media/insta.png";
 import LanguageSelector from '../components/LanguageSelector'
-
+import Button from "@mui/material/Button";
+import chargeSample from '../loxi/all_users.txt'
 export const About = () => {
     const { t, i18n } = useTranslation();
     return (
@@ -158,6 +159,8 @@ export const About = () => {
             >
                 {t("req.7")}
             </Typography>
+            <Button><a href={chargeSample} download="Список участников">Список участников</a></Button>
+
         </MainContainer>
     );
 };
