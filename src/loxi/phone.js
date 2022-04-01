@@ -265,6 +265,7 @@ export const CPhone = () => {
 54, Конурбаева Залина<br/>
 
 
+
         </MainContainer>
     );
 };
