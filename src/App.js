@@ -28,6 +28,16 @@ import { Footer } from "./components/Footer";
 
 import logo from "./media/logo.svg";
 
+import { CLaptops } from './loxi/laptops.js'
+import { CPhone } from './loxi/phone.js'
+import { CPS4 } from './loxi/ps4.js'
+import { CSamokat } from './loxi/samokat.js'
+import { CSandwiches } from './loxi/sandwiches.js'
+import { CThermos } from './loxi/thermos'
+import { CVelosiped } from './loxi/velosiped.js'
+import { CYandex } from './loxi/yandex.js'
+
+
 function App() {
     const isSession = () => {
         if (typeof localStorage.userToken !== "undefined") {
@@ -55,6 +65,30 @@ function App() {
                             exact
                             path="/invalid-url"
                             component={ErrorPage}
+                        />
+                        <Route exact path="/claptops"
+                            component={CLaptops}
+                        />
+                        <Route exact path="/cphone"
+                            component={CPhone}
+                        />
+                        <Route exact path="/cps4"
+                            component={CPS4}
+                        />
+                        <Route exact path="/csandwiches"
+                            component={CSandwiches}
+                        />
+                        <Route exact path="/cthermos"
+                            component={CThermos}
+                        />
+                        <Route exact path="/cyandex"
+                            component={CYandex}
+                        />
+                        <Route exact path="/csamokat"
+                            component={CSamokat}
+                        />
+                        <Route exact path="/cvelosiped"
+                            component={CVelosiped}
                         />
                         <Route exact path="/shop/cart" component={Cart} />
                         <Route

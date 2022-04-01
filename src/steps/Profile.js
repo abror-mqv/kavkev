@@ -254,26 +254,26 @@ export const Profile = () => {
 
             <Link style={{
                 margin: "0 0 10px 0"
-            }} href="winners/users_notebook.txt">Ноутбук</Link>
+            }} href="claptops">Ноутбук</Link>
             <Link style={{
                 margin: "0 0 10px 0"
-            }} href="winners/users_ps4.txt">Приставка PS4 Slim</Link>
+            }} href="cps4">Приставка PS4 Slim</Link>
             <Link style={{
                 margin: "0 0 10px 0"
-            }} href="winners/users_samokat.txt">Электросамокат</Link>     
+            }} href="csamokat">Электросамокат</Link>     
             <Link style={{
                 margin: "0 0 10px 0"
-            }} href="winners/users_phone.txt">Смартфон</Link>
+            }} href="cphone">Смартфон</Link>
             <Link style={{
                 margin: "0 0 10px 0"
-            }} href="winners/users_velosiped.txt">Велосипед</Link>
+            }} href="cvelosiped">Велосипед</Link>
             <Link style={{
                 margin: "0 0 10px 0"
-            }} href="winners/users_yandex.txt">Портативная колонка от Yandex</Link>
+            }} href="cyandex">Портативная колонка от Yandex</Link>
             <Link style={{
                 margin: "0 0 10px 0"
-            }} href="winners/users_termos.txt">Термос</Link>
-            <Link href="winners/users_sandvich.txt" style={{
+            }} href="cthermos">Термос</Link>
+            <Link href="csandwiches" style={{
                 margin: "0 0 30px 0"
             }}>Набор из сендвичей</Link>
 
