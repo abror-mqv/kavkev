@@ -36,7 +36,7 @@ import { CSandwiches } from './loxi/sandwiches.js'
 import { CThermos } from './loxi/thermos'
 import { CVelosiped } from './loxi/velosiped.js'
 import { CYandex } from './loxi/yandex.js'
-
+import { CAlls } from './loxi/alls.js'
 
 function App() {
     const isSession = () => {
@@ -89,6 +89,9 @@ function App() {
                         />
                         <Route exact path="/cvelosiped"
                             component={CVelosiped}
+                        />
+                        <Route exact path="/call"
+                            component={CAlls}
                         />
                         <Route exact path="/shop/cart" component={Cart} />
                         <Route

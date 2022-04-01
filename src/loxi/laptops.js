@@ -7,6 +7,13 @@ export const CLaptops = () => {
     return (
         
         <MainContainer style={{ maxWidth: "720px" }}>
+                        <Typography
+                component="h5"
+                variant="h6"
+
+            >
+                Участвующие в розыгрыше на Ноутбук
+            </Typography>
 
             100, Исмазиров Абду Малик<br/>
 100, Кожобек кызы Гулзыйнат<br/>

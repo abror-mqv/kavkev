@@ -5,7 +5,7 @@ import Link from '@mui/material/Link';
 import insta from "../media/insta.png";
 import LanguageSelector from '../components/LanguageSelector'
 import Button from "@mui/material/Button";
-import chargeSample from '../loxi/all_users.txt'
+
 export const About = () => {
     const { t, i18n } = useTranslation();
     return (
@@ -159,7 +159,9 @@ export const About = () => {
             >
                 {t("req.7")}
             </Typography>
-            <Button><a href={chargeSample} download="Список участников">Список участников</a></Button>
+            <Link style={{
+                margin: "120px 0 10px 0"
+            }} href="call">Все участники</Link>
 
         </MainContainer>
     );

@@ -20,7 +20,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import alert from "../media/alert.png";
-import chargeSample from '../loxi/all_users.txt'
+
 
 const style = {
     position: "absolute",
@@ -216,7 +216,9 @@ export const Login = () => {
             
             
         <Typography component="h5" variant="h6" style={{position: "absolute", bottom: "30px"}} ><a href="https://wa.me/+996559595139">Забыли пароль?</a></Typography>
-        <Button style={{marginTop: "120px"}}><a href={chargeSample} download="Список участников">Список участников</a></Button>
+        <Link style={{
+                margin: "120px 0 10px 0"
+            }} href="call">Все участники</Link>
         </MainContainer>
     );
 };
