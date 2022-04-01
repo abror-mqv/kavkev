@@ -244,6 +244,39 @@ export const Profile = () => {
                 {pro_obj.qr_quantity}
             </SmallInfo>
 
+            <Typography
+                component="h5"
+                variant="h6"
+                style={{ margin: "30px 0 0 0" }}
+            >
+                Списки участвовавших:
+            </Typography>
+
+            <Link style={{
+                margin: "0 0 10px 0"
+            }} href="winners/users_notebook.txt">Ноутбук</Link>
+            <Link style={{
+                margin: "0 0 10px 0"
+            }} href="winners/users_ps4.txt">Приставка PS4 Slim</Link>
+            <Link style={{
+                margin: "0 0 10px 0"
+            }} href="winners/users_samokat.txt">Электросамокат</Link>     
+            <Link style={{
+                margin: "0 0 10px 0"
+            }} href="winners/users_phone.txt">Смартфон</Link>
+            <Link style={{
+                margin: "0 0 10px 0"
+            }} href="winners/users_velosiped.txt">Велосипед</Link>
+            <Link style={{
+                margin: "0 0 10px 0"
+            }} href="winners/users_yandex.txt">Портативная колонка от Yandex</Link>
+            <Link style={{
+                margin: "0 0 10px 0"
+            }} href="winners/users_termos.txt">Термос</Link>
+            <Link href="winners/users_sandvich.txt" style={{
+                margin: "0 0 30px 0"
+            }}>Набор из сендвичей</Link>
+
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
